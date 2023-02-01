@@ -1,16 +1,8 @@
+import TodoItem from "./classes/TodoItem.js"
+
 let todos = []
 let searchedTodos = []
 let searchText = ""
-let todoCount = 0
-
-class TodoItem {
-  constructor(title, content) {
-    this.id = ++todoCount
-    this.title = title
-    this.content = content
-    this.isDone = false
-  }
-}
 
 const todoAddForm = document.querySelector("#todoForm")
 const todoTitleInput = document.querySelector("input#title")
@@ -105,12 +97,12 @@ todoSearchForm.addEventListener('submit', async (e) => {
   renderTodos();
 })
 
-const deleteTodo = async (todoId) => {
+window.deleteTodo = async (todoId) => {
   await removeTodoFromList(todoId);
   renderTodos();
 }
 
-const switchTodo = async (todoId) => {
+window.switchTodo = async (todoId) => {
   await switchTodoStatus(todoId);
   renderTodos();
 }
