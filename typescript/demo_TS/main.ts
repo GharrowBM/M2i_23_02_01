@@ -1,3 +1,5 @@
+import { Person } from "./classes/Person";
+
 console.log("Hello World!")
 
 // Pour créer une fonction en TS, la différence est l'ajout du typage pour les paramètres
