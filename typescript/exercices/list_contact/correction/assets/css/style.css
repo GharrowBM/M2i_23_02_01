@@ -1,0 +1,23 @@
+img#avatar {
+  height: 260px;
+  width: 260px;
+  object-fit: cover;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  margin: 4rem auto;
+  width: 50%;
+  padding: 2rem;
+}

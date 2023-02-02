@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="./assets//js/main.js" defer type="module"></script>
+  <title>eContacts</title>
+</head>
+<body>
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3>Add a Contact</h3>
+        <i class="bi bi-x" style="font-size: 2rem;" id="modalClose"></i>
+      </div>
+      <hr>
+      <form id="contactAdd">
+        <div class="mb-3">
+          <label for="firstname" class="form-label">Firstname:</label>
+          <input type="text" class="form-control" id="form-firstname" name="firstname">
+        </div>
+        <div class="mb-3">
+          <label for="lastname" class="form-label">Lastname:</label>
+          <input type="text" class="form-control" id="form-lastname" name="lastname">
+        </div>
+        <div class="mb-3">
+          <label for="dateOfBirth" class="form-label">Date of Birth:</label>
+          <input type="text" class="form-control" name="dateOfBirth" id="form-dateOfBirth">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" name="email" id="form-email">
+        </div>
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label">Phone number:</label>
+          <input type="text" class="form-control" name="phoneNumber" id="form-phoneNumber">
+        </div>
+        <div class="mb-3">
+          <label for="avatarURL" class="form-label">Avatar URL:</label>
+          <input type="text" class="form-control" id="form-avatarURL" name="avatarURL">
+        </div>
+        <div class="text-end">
+          <button class="btn btn-secondary" id="addContactConfirm"><i class="bi bi-send"></i> Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="contactEditModal" class="modal">
+    <div class="modal-content">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3>Edit a Contact</h3>
+        <i class="bi bi-x" style="font-size: 2rem;" id="modalEditClose"></i>
+      </div>
+      <hr>
+      <form id="contactEdit">
+        <div class="mb-3">
+          <label for="firstname" class="form-label">Firstname:</label>
+          <input type="text" class="form-control" id="form-firstname" name="firstname">
+        </div>
+        <div class="mb-3">
+          <label for="lastname" class="form-label">Lastname:</label>
+          <input type="text" class="form-control" id="form-lastname" name="lastname">
+        </div>
+        <div class="mb-3">
+          <label for="dateOfBirth" class="form-label">Date of Birth:</label>
+          <input type="text" class="form-control" name="dateOfBirth" id="form-dateOfBirth">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" name="email" id="form-email">
+        </div>
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label">Phone number:</label>
+          <input type="text" class="form-control" name="phoneNumber" id="form-phoneNumber">
+        </div>
+        <div class="mb-3">
+          <label for="avatarURL" class="form-label">Avatar URL:</label>
+          <input type="text" class="form-control" id="form-avatarURL" name="avatarURL">
+        </div>
+        <div class="text-end">
+          <button class="btn btn-secondary" id="addContactConfirm"><i class="bi bi-pencil-square"></i> Edit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <main class="container my-3">
+    <div class="row g-3 text-light">
+      <div class="col-4">
+        <div class="bg-dark rounded p-3">
+          <h3>Contacts</h3>
+          <hr>
+          <div id="contactsContainer">
+          </div>
+          <hr>
+          <button class="btn btn-success w-100" id="addContact"><i class="bi bi-plus-circle"></i> Ajouter</button>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="bg-dark rounded p-3">
+          <h3>Details</h3>
+          <hr>
+          <div id="contact-details">
+            <div class="row">
+              <div class="col-8">
+                <div class="mb-3">
+                  <label for="firstname" class="form-label">Firstname:</label>
+                  <input type="text" class="form-control" id="firstname" name="firstname" readonly>
+                </div>
+                <div class="mb-3">
+                  <label for="lastname" class="form-label">Lastname:</label>
+                  <input type="text" class="form-control" id="lastname" name="lastname" readonly>
+                </div>
+                <div class="mb-3">
+                  <label for="dateOfBirth" class="form-label">Date of Birth:</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" name="dateOfBirth" id="dateOfBirth" readonly>
+                    <span class="input-group-text" id="age"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <img src="./assets/img/unknown.jpg" alt="Avatar" id="avatar">
+              </div>
+              <div class="col-12">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email:</label>
+                  <input type="email" class="form-control" name="email" id="email" readonly>
+                </div>
+                <div class="mb-3">
+                  <label for="phoneNumber" class="form-label">Phone number:</label>
+                  <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" readonly>
+                </div>
+                <div class="text-end">
+                  <button class="btn btn-warning" id="editContact"><i class="bi bi-pencil-square"></i> Editer</button>
+                  <button class="ms-3 btn btn-danger" id="deleteContact"><i class="bi bi-trash"></i> Supprimer</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
