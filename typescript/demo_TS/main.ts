@@ -122,6 +122,10 @@ let monTableauNbB = [6, 7, 8, 9, 10]
 let monNouveauTabl = [...monTableauNbA, ...monTableauNbB]
 let [monPremierNb, ...leReste] = monNouveauTabl
 
+// Lorsque l'on créé des objets en Typescript, il peut être utile de les forcer à avoir une structure particulière
+// Pour ce faire, on va avoir la plupart du temps recours aux interfaces, qui offrent plus de flexibilité que les classes 
+// dans le cas où l'on ne veut pas rendre commun des choses pour chaque objet, mais simplement que leur structure soit identique
+
 let monObjA: Client = {
   firstname: "Albert",
   lastname: "DUPONT"
@@ -145,6 +149,31 @@ let monObjC: ClientRegulier = {
   lastname: "SMITH",
   pointFid: 15
 }
+
+/* 
+  Manipuler le DOm en Typescript est un peu plus délicat que de le faire en Javascript. En effet, le JS
+  intègre comme principe le Duck Typing, qui permet d'écrire du code sans réellement le contrôler mais de pouvoir vérifier
+  sa véracité à l'execution. 
+
+  En Typescript, cela n'est pas permis, et il nous faut, lors de la création de fonction manipulant le DOM, spécifier que notre 
+  paramètre sera un évènement HTML, que l'élément que l'on récupère dans le DOM est un input, etc...
+
+  Pour ce faire, nous avons recours au casting, qui peut se faire de deux façon
+
+  La première passe par l'utilisation de chevrons, par exemple : 
+
+  const message = <string> monObjet
+
+  La seconde passe par l'utilisation d'un mot-clé :
+
+  const message = monObjet as string
+
+  Si l'on a besoin de manipuler des propriétés ou des méthodes de notre élément casté, alors la syntaxe 
+  s'accompagnera de parenthèses : 
+
+  const longueur = (<string> monObjet).length
+  const longueur = (monObjet as string).length
+*/ 
 
 function onFormSubmit (event: SubmitEvent) {
   event.preventDefault()
