@@ -14,7 +14,6 @@
   Les attributs statiques sont particulièrement utiles pour faire un compteur d'éléments créé de cette classe. 
 */
 
-
 class Person {
   private static _count: number = 0
   private _id: number;

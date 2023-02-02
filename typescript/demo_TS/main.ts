@@ -1,4 +1,5 @@
 import { Person } from "./classes/Person";
+import {Client, ClientRegulier} from "./interfaces/Client";
 
 console.log("Hello World!")
 
@@ -120,3 +121,40 @@ let monTableauNbA = [1, 2, 3, 4, 5]
 let monTableauNbB = [6, 7, 8, 9, 10]
 let monNouveauTabl = [...monTableauNbA, ...monTableauNbB]
 let [monPremierNb, ...leReste] = monNouveauTabl
+
+let monObjA: Client = {
+  firstname: "Albert",
+  lastname: "DUPONT"
+}
+
+let monObjB: Client = {
+  firstname: "Albert",
+  lastname: "DUPONT",
+  numeroIdNat: 6424851,
+  acheter() {
+    if (this.firstname === "blabla") {
+      return 10;
+    } else {
+      return 25;
+    }
+  }
+}
+
+let monObjC: ClientRegulier = {
+  firstname: "Thierry",
+  lastname: "SMITH",
+  pointFid: 15
+}
+
+function onFormSubmit (event: SubmitEvent) {
+  event.preventDefault()
+}
+
+let monTexte = "";
+
+function onInputChanged (event: InputEvent) {
+  monTexte = (<HTMLInputElement> event.target).value
+  monTexte = (event.target as HTMLInputElement).value
+
+  const imageEl = document.querySelector("blabla") as HTMLImageElement;
+}
