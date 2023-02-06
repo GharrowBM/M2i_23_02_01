@@ -1,135 +1,124 @@
-import Person from "./classes/Person.js";
+import Contact from "./classes/Person.js";
 const contacts = [
-    new Person("Albert", "DUPONT", new Date("1985-10-25"), "a.dupont@example.com", "+33 123 456 789", ""),
-    new Person("Hélène", "DUPONT", new Date("1988-06-27"), "h.dupont@example.com", "+33 147 654 852", ""),
-    new Person("John", "SMITH", new Date("1992-04-14"), "j.smith@example.com", "+32 158 943 225", ""),
-    new Person("Clara", "GOMEZ", new Date("1967-09-13"), "c.gomez@example.com", "+33 146 997 254", ""),
-    new Person("Elizabeth", "MARTIN", new Date("1964-02-22"), "e.martin@example.com", "+33 119 788 254", ""),
+    new Contact("Albert", "DUPONT", new Date("1985-10-25"), "a.dupont@example.com", "+33 123 456 789", ""),
+    new Contact("Hélène", "DUPONT", new Date("1988-06-27"), "h.dupont@example.com", "+33 147 654 852", ""),
+    new Contact("John", "SMITH", new Date("1992-04-14"), "j.smith@example.com", "+32 158 943 225", ""),
+    new Contact("Clara", "GOMEZ", new Date("1967-09-13"), "c.gomez@example.com", "+33 146 997 254", ""),
+    new Contact("Elizabeth", "MARTIN", new Date("1964-02-22"), "e.martin@example.com", "+33 119 788 254", ""),
 ];
 let selectedContact = contacts[0];
-const contactContainerEl = document.querySelector('#contactsContainer');
-const addContactButtonEl = document.querySelector("button#addContact");
-const editContactButtonEl = document.querySelector("button#editContact");
-const deleteContactButtonEl = document.querySelector("button#deleteContact");
-const contactModalEl = document.querySelector("#contactModal");
-const contactEditModalEl = document.querySelector("#contactEditModal");
-const addContactForm = document.querySelector("form#contactAdd");
-const editContactForm = document.querySelector("form#contactEdit");
-const modalCloseButtonEl = document.querySelector('#contactModal #modalClose');
-const modalEditCloseButtonEl = document.querySelector('#contactEditModal #modalEditClose');
-const refreshDetails = () => {
-    const firstnameInputEl = document.querySelector('input#firstname');
-    const lastnameInputEl = document.querySelector('input#lastname');
-    const dateOfBirthInputEl = document.querySelector('input#dateOfBirth');
-    const emailInputEl = document.querySelector('input#email');
-    const phoneNumberInputEl = document.querySelector('input#phoneNumber');
-    const avatarImgEl = document.querySelector('img#avatar');
-    const ageSpanEl = document.querySelector('span#age');
-    if (selectedContact) {
-        firstnameInputEl.value = selectedContact.firstname;
-        lastnameInputEl.value = selectedContact.lastname;
-        dateOfBirthInputEl.value = selectedContact.dateOfBirth.toLocaleDateString();
-        emailInputEl.value = selectedContact.email;
-        phoneNumberInputEl.value = selectedContact.phoneNumber;
-        avatarImgEl.src = selectedContact.avatarURL;
-        ageSpanEl.textContent = `${selectedContact.age} years old`;
-    }
-    else {
-        firstnameInputEl.value = "";
-        lastnameInputEl.value = "";
-        dateOfBirthInputEl.value = "jj/mm/yyyy";
-        emailInputEl.value = "";
-        phoneNumberInputEl.value = "";
-        avatarImgEl.src = "./assets/img/unknown.jpg";
-        ageSpanEl.textContent = "0 years old";
-    }
-};
+const btnAddContacts = document.getElementById("btnAddContact");
+const btnEditContacts = document.getElementById("btnEditContact");
+const btnDeleteContacts = document.getElementById("btnDeleteContact");
+const contactsContainer = document.getElementById("contactsContainer");
+const addContactModal = document.getElementById("addContactModal");
+const closeAddContactCross = document.getElementById("addContactClose");
+const formAddContact = document.getElementById("formAddContact");
+const editContactModal = document.getElementById("editContactModal");
+const closeEditContactCross = document.getElementById("editContactClose");
+const formEditContact = document.getElementById("formEditContact");
 const refreshContactContainer = () => {
-    contactContainerEl.innerHTML = "";
+    contactsContainer.innerHTML = "";
     contacts.forEach(contact => {
-        let newButton = document.createElement('button');
+        const newButton = document.createElement('button');
         newButton.textContent = contact.fullname;
-        newButton.className = contact === selectedContact ? "btn btn-light p-2 px-4 w-100 my-2" : "btn btn-outline-light p-2 px-4 w-100 my-2";
-        newButton.id = `selectContact-${contact.id}`;
+        newButton.className = contact === selectedContact ? "btn btn-light w-100 my-2" : "btn btn-outline-light w-100 my-2";
         newButton.addEventListener('click', () => {
             selectedContact = contact;
-            refreshDetails();
             refreshContactContainer();
+            refreshContactInfos();
         });
-        contactContainerEl.appendChild(newButton);
+        contactsContainer.appendChild(newButton);
     });
 };
-addContactButtonEl.addEventListener('click', () => {
-    contactModalEl.style.display = "block";
-    addContactForm.querySelector("#form-firstname").value = "";
-    addContactForm.querySelector("#form-lastname").value = "";
-    addContactForm.querySelector("#form-email").value = "";
-    addContactForm.querySelector("#form-phoneNumber").value = "";
-    addContactForm.querySelector("#form-avatarURL").value = "";
-    addContactForm.querySelector("#form-dateOfBirth").value = "";
-});
-modalEditCloseButtonEl.addEventListener('click', () => {
-    contactEditModalEl.style.display = "none";
-});
-modalCloseButtonEl.addEventListener('click', () => {
-    contactModalEl.style.display = "none";
-});
-window.addEventListener('click', (e) => {
-    if (e.target == contactModalEl) {
-        contactModalEl.style.display = "none";
-    }
-    else if (e.target === contactEditModalEl) {
-        contactEditModalEl.style.display = "none";
-    }
-});
-addContactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const firstname = addContactForm.querySelector("#form-firstname").value;
-    const lastname = addContactForm.querySelector("#form-lastname").value;
-    const email = addContactForm.querySelector("#form-email").value;
-    const phoneNumber = addContactForm.querySelector("#form-phoneNumber").value;
-    const avatarURL = addContactForm.querySelector("#form-avatarURL").value;
-    const dateOfBirth = new Date(addContactForm.querySelector("#form-dateOfBirth").value);
-    const newPerson = new Person(firstname, lastname, dateOfBirth, email, phoneNumber, avatarURL);
-    contacts.push(newPerson);
-    contactModalEl.style.display = "none";
-    refreshContactContainer();
-});
-editContactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const firstname = editContactForm.querySelector("#form-firstname").value;
-    const lastname = editContactForm.querySelector("#form-lastname").value;
-    const email = editContactForm.querySelector("#form-email").value;
-    const phoneNumber = editContactForm.querySelector("#form-phoneNumber").value;
-    const avatarURL = editContactForm.querySelector("#form-avatarURL").value;
-    const dateOfBirth = new Date(editContactForm.querySelector("#form-dateOfBirth").value.split("/").reverse().join("-"));
-    selectedContact.firstname = firstname;
-    selectedContact.lastname = lastname;
-    selectedContact.email = email;
-    selectedContact.phoneNumber = phoneNumber;
-    selectedContact.avatarURL = avatarURL;
-    selectedContact.dateOfBirth = dateOfBirth;
-    contactEditModalEl.style.display = "none";
-    refreshContactContainer();
-    refreshDetails();
-});
-deleteContactButtonEl.addEventListener('click', () => {
-    const answer = confirm("Are you sure?");
-    if (answer) {
+const refreshContactInfos = () => {
+    const firstnameEl = document.getElementById("details-firstname");
+    const lastnameEl = document.getElementById("details-lastname");
+    const avatarEl = document.getElementById("details-avatarURL");
+    const dateOfBirthEl = document.getElementById("details-dateOfBirth");
+    const ageEl = document.getElementById("details-age");
+    const emailEl = document.getElementById("details-email");
+    const phoneNumberEl = document.getElementById("details-phoneNumber");
+    firstnameEl.value = selectedContact ? selectedContact.firstname : "";
+    lastnameEl.value = selectedContact ? selectedContact.lastname : "";
+    dateOfBirthEl.value = selectedContact ? selectedContact.dateOfBirth.toLocaleDateString() : "";
+    emailEl.value = selectedContact ? selectedContact.email : "";
+    phoneNumberEl.value = selectedContact ? selectedContact.phoneNumber : "";
+    avatarEl.src = selectedContact ? selectedContact.avatarURL : "./assets/img/unknown.jpg";
+    ageEl.textContent = selectedContact ? `${selectedContact.age}yo` : "";
+};
+btnDeleteContacts.addEventListener('click', () => {
+    if (confirm("Are you sure?")) {
         contacts.splice(contacts.indexOf(selectedContact), 1);
         selectedContact = undefined;
         refreshContactContainer();
-        refreshDetails();
+        refreshContactInfos();
     }
 });
-editContactButtonEl.addEventListener('click', () => {
-    contactEditModalEl.style.display = "block";
-    editContactForm.querySelector("#form-firstname").value = selectedContact.firstname;
-    editContactForm.querySelector("#form-lastname").value = selectedContact.lastname;
-    editContactForm.querySelector("#form-email").value = selectedContact.email;
-    editContactForm.querySelector("#form-phoneNumber").value = selectedContact.phoneNumber;
-    editContactForm.querySelector("#form-avatarURL").value = selectedContact.avatarURL;
-    editContactForm.querySelector("#form-dateOfBirth").value = selectedContact.dateOfBirth.toLocaleDateString();
+btnAddContacts.addEventListener('click', () => {
+    addContactModal.style.display = "block";
 });
-refreshDetails();
+btnEditContacts.addEventListener('click', () => {
+    if (selectedContact) {
+        editContactModal.style.display = "block";
+        const firstnameEl = document.getElementById("edit-firstname");
+        const lastnameEl = document.getElementById("edit-lastname");
+        const avatarEl = document.getElementById("edit-avatarURL");
+        const dateOfBirthEl = document.getElementById("edit-dateOfBirth");
+        const emailEl = document.getElementById("edit-email");
+        const phoneNumberEl = document.getElementById("edit-phoneNumber");
+        firstnameEl.value = selectedContact.firstname;
+        lastnameEl.value = selectedContact.lastname;
+        dateOfBirthEl.value = selectedContact.dateOfBirth.toLocaleDateString().split("/").reverse().join("-");
+        emailEl.value = selectedContact.email;
+        phoneNumberEl.value = selectedContact.phoneNumber;
+        avatarEl.value = selectedContact.avatarURL;
+    }
+});
+window.addEventListener('click', (e) => {
+    if (e.target === addContactModal) {
+        addContactModal.style.display = "none";
+    }
+    else if (e.target === editContactModal) {
+        editContactModal.style.display = "none";
+    }
+});
+closeAddContactCross.addEventListener('click', () => {
+    addContactModal.style.display = "none";
+});
+closeEditContactCross.addEventListener('click', () => {
+    editContactModal.style.display = "none";
+});
+formAddContact.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const firstnameEl = document.getElementById("add-firstname");
+    const lastnameEl = document.getElementById("add-lastname");
+    const dateOfBirthEl = document.getElementById("add-dateOfBirth");
+    const emailEl = document.getElementById("add-email");
+    const phoneNumberEl = document.getElementById("add-phoneNumber");
+    const avatarEl = document.getElementById("add-avatarURL");
+    const newContact = new Contact(firstnameEl.value, lastnameEl.value, new Date(dateOfBirthEl.value.split("/").reverse().join("-")), emailEl.value, phoneNumberEl.value, avatarEl.value);
+    contacts.push(newContact);
+    refreshContactContainer();
+    addContactModal.style.display = "none";
+});
+formEditContact.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const firstnameEl = document.getElementById("edit-firstname");
+    const lastnameEl = document.getElementById("edit-lastname");
+    const avatarEl = document.getElementById("edit-avatarURL");
+    const dateOfBirthEl = document.getElementById("edit-dateOfBirth");
+    const emailEl = document.getElementById("edit-email");
+    const phoneNumberEl = document.getElementById("edit-phoneNumber");
+    selectedContact.firstname = firstnameEl.value;
+    selectedContact.lastname = lastnameEl.value;
+    selectedContact.avatarURL = avatarEl.value;
+    selectedContact.email = emailEl.value;
+    selectedContact.phoneNumber = phoneNumberEl.value;
+    selectedContact.dateOfBirth = new Date(dateOfBirthEl.value.split("/").reverse().join("-"));
+    editContactModal.style.display = "none";
+    refreshContactContainer();
+    refreshContactInfos();
+});
 refreshContactContainer();
+refreshContactInfos();
