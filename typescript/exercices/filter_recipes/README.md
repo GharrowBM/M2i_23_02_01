@@ -36,8 +36,13 @@ Vous aurez également besoin de traiter les données dans l'application sous for
 const recipesList: Recipe[] = [];
 ```
 
-Enfin, dans le but de transformer l'objet Javascript en un Array exploitable, la méthode la plus simple sera de parcourir chaque clé de l'objet exporté (avec par exemple une boucle de type `for (const el of containerVar) { }`).
+Enfin, dans le but de transformer l'objet Javascript en un Array exploitable, la méthode la plus simple sera de parcourir chaque clé de l'objet exporté (avec par exemple une boucle de type :
+```ts
+for (const key in object) {
+
+}
+```
 
 ---
 
-![exemple](./exemple.png)
+![exemple](./example.png)
