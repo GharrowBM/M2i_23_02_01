@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import ThirdComponent, { FirstComponent, FiveComponent, FourComponent, SecondComponent, SixComponent } from './component/Component';
+import ThirdComponent, { FirstComponent, FiveComponent, FourComponent, SecondComponent, SevenComponent, SixComponent } from './component/Component';
 
 
 
@@ -33,9 +33,11 @@ function App() {
       <FiveComponent message={"Mon cinquiéme component !!!"}></FiveComponent>
         
     </div> */}
-    <SixComponent>
+    {/* <SixComponent>
         <>Et enfin mon sixieme component !!!</>
       </SixComponent>   
+    </> */}
+      <SevenComponent></SevenComponent>
     </>
   );
 }

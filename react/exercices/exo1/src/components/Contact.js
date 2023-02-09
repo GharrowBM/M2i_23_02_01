@@ -1,6 +1,7 @@
 
 import { Component } from 'react';
-import { Adresse } from './Adresse';
+import Adresse from './Adresse';
+
 
 export class Contact extends Component{
     constructor(props){

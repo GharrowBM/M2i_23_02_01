@@ -71,3 +71,27 @@ export function SixComponent(props) { // Premiere lettre Uppercase et composant 
         </header>
     )
 }
+
+
+export class SevenComponent extends Component { 
+
+    constructor(props) {
+        super(props)
+        this.state = { messages : ["message1","message2","message3"] }
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>Mon Septiéme component React !!!</h1>
+                {this.state.messages.map((m,i) => (<EighthComponent key={i} message={m}></EighthComponent>))}
+            </div>
+        )
+    }
+
+
+}
+
+function EighthComponent(props) {
+    return (<h2>{props.message}</h2>)   
+}
