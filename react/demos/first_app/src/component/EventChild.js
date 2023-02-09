@@ -5,9 +5,14 @@ class EventComponentChild extends Component {
         super(props)
     }
 
+    // méthode lors du clique sur le lien enfant
     clickLink = (e) => {
-        e.preventDefault()
-        console.log("clique sur le lien")
+         e.preventDefault() // annuler comportement par défaut
+         console.log("clique sur le lien")
+        // appelle de ma méthode parent via mes props
+         this.props.clickChild()
+         // appelle de ma méthode avec parametre parent via mes props
+         this.props.clickChildParam("test");
     }
 
     render() {
