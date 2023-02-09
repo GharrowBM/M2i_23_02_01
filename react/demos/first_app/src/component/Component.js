@@ -1,5 +1,5 @@
 import React, { Component } from 'react' // utlise uniquement pour le troisieme composant
-
+import './component.css';
 
 
 export function FirstComponent() { // Premiere lettre Uppercase (convention PascalCase ou aussi appele UpperCamelCase ) et composant dans une fonction
@@ -93,5 +93,8 @@ export class SevenComponent extends Component {
 }
 
 function EighthComponent(props) {
-    return (<h2>{props.message}</h2>)   
+  //  return (<h2 style={{backgroundColor : "red"}}>{props.message}</h2>)   
+  //  return (<h2 className='component'>{props.message}</h2>)  
+    const styleH2 = {backgroundColor : "red"}
+    return (<h2 style={styleH2}>{props.message}</h2>)  
 }

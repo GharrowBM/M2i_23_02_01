@@ -37,6 +37,7 @@ function App() {
         <>Et enfin mon sixieme component !!!</>
       </SixComponent>   
     </> */}
+    <h2>Coucou H2 depuis app js</h2>
       <SevenComponent></SevenComponent>
     </>
   );
