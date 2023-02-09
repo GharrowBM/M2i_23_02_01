@@ -8,7 +8,8 @@ Créez une application ReactJs qui permet d’afficher deux composants :
 
 Exercice 2 
 
-Créez une application ReactJs qui permet d’afficher une liste clients chaque client possède un nom, prénom, 
+Créez une application ReactJs qui permet d’afficher une liste clients 
+chaque client possède un nom, prénom, 
 téléphone, statut (actif ou non),
  adresse (rue, ville, code postal).
 Affichez un marqueur rouge pour les clients non actif.

@@ -8,7 +8,7 @@ function App() {
    
 
     <>
-     <Contact></Contact>
+     {/* <Contact></Contact> */}
 
     </>
   );
