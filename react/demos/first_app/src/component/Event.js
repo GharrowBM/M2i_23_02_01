@@ -11,6 +11,11 @@ class EventComponant extends Component {
 
     cahngeInput = (e) => {
         console.log(e.target.value)
+        let tmpMessage = {...this.state.message}
+        tmpMessage = {contenu : e.target.value}
+        console.log("state",this.state.message)
+        console.log("tmpMessage",tmpMessage);
+        this.setState({...tmpMessage})
     }
 
 

@@ -7,6 +7,7 @@ class EventComponentChild extends Component {
 
     clickLink = (e) => {
         e.preventDefault()
+        console.log("clique sur le lien")
     }
 
     render() {
