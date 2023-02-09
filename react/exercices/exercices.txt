@@ -13,3 +13,7 @@ chaque client possède un nom, prénom,
 téléphone, statut (actif ou non),
  adresse (rue, ville, code postal).
 Affichez un marqueur rouge pour les clients non actif.
+
+Exercice 3
+
+Ajoutez à l'exercice 2, la possibilité de changer le statut d'un client.
