@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import ThirdComponent, { FirstComponent, FiveComponent, FourComponent, SecondComponent, SevenComponent, SixComponent } from './component/Component';
+import { Car } from './component/Car';
 
 
 
@@ -37,8 +38,9 @@ function App() {
         <>Et enfin mon sixieme component !!!</>
       </SixComponent>   
     </> */}
-    <h2>Coucou H2 depuis app js</h2>
-      <SevenComponent></SevenComponent>
+    {/* <h2>Coucou H2 depuis app js</h2>
+      <SevenComponent></SevenComponent> */}
+     <Car></Car>
     </>
   );
 }

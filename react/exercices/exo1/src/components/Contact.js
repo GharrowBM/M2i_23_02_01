@@ -16,6 +16,8 @@ export class Contact extends Component{
         }
     }
 
+    
+
     render() {
         const {nom, prenom, telephone} = this.state.contact;
         return(
