@@ -11,6 +11,8 @@ export class FirstExercice extends Component { // utilisation d'une classe
         console.log("je change l'etat de mon state")
         const tmpState = {...this.state}
       
+        // Possibilité d'uliser une fonction à la place d'un objet (premier parametre va correspondre au state précedent et/ou second parametre les props)
+        // https://fr.reactjs.org/docs/state-and-lifecycle.html
         this.setState((prevState) => ({...prevState, boolean : !prevState.boolean}))
     }
 
