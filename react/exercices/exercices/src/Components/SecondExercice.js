@@ -1,5 +1,6 @@
 import React, { Component } from 'react' // necessaire pour mon composant dans une classe
 import { Liste } from './SecondExercice/Liste'
+import classes from './secondexercice.module.css';
 export class SecondExercice extends Component { // utilisation d'une classe 
 
     constructor(props) {
@@ -11,7 +12,7 @@ export class SecondExercice extends Component { // utilisation d'une classe
         //return dans un React Fragment
         return (
             <>
-                <h2>Exercie 2 :</h2>
+                <h2 className={classes.h2color}>Exercie 2 :</h2>
                 <p>Sujet :</p>
                 <p>Créez une application ReactJs qui permet d’afficher une liste clients chaque client possède un nom, prénom, téléphone, statut (actif ou non), adresse (rue, ville, code postal).
                     Affichez un marqueur rouge pour les clients non actif.</p>

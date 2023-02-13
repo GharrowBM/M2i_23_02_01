@@ -42,6 +42,20 @@ export class ThirdListe extends Component { // utilisation d'une classe
         }
     }
 
+    changeStatutClientByName = (name) => {
+       // console.log("ici je dois modifier le statut d'un client par rapport a son name")
+       // console.log("j'ai recu en parametre :"+name)
+        const tmpClients = [...this.state.clients]
+        tmpClients.forEach(c => {
+            if(c.nom == name){
+                c.statut = !c.statut
+            }
+        })
+       // console.log(tmpClients)
+        this.setState({ clients : [...tmpClients]})
+
+    }
+
     render() {
 
         return (
@@ -53,7 +67,7 @@ export class ThirdListe extends Component { // utilisation d'une classe
                         </tr>
                     </thead>
                     <tbody>
-                    {this.state.clients.map((client,i) => (<ThirdClient client={client} key={i}></ThirdClient>))}         
+                    {this.state.clients.map((client,i) => (<ThirdClient client={client} key={i} changeStatutClientByName={this.changeStatutClientByName}></ThirdClient>))}         
                     </tbody>
                     </table>
              
