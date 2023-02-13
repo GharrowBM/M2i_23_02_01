@@ -4,13 +4,24 @@ export class FirstExercice extends Component { // utilisation d'une classe
 
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = { boolean : false}
     }
+
+    changBoolean = () => {
+        console.log("je change l'etat de mon state")
+        const tmpState = {...this.state}
+      
+        this.setState((prevState) => ({...prevState, boolean : !prevState.boolean}))
+    }
+
+
 
     render() {
         //return dans un React Fragment
         return (
             <>
+                <div>{this.state.boolean? "mon state boolean est true" : "mon state boolean est false" }</div>
+                <button onClick={this.changBoolean}>Change boolean</button>
                 <h2>Exercice 1 :</h2>
                 <p>Sujet :</p>
                 <p>Créez une application ReactJs qui permet d’afficher deux composants :
