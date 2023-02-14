@@ -1,5 +1,5 @@
 import { Component } from "react"
-import { getData } from "./services/data.service"
+import { getData, getInfoPokeApi } from "./services/data.service"
 
 export class DataComponent extends Component {
     constructor(props){
@@ -13,7 +13,9 @@ export class DataComponent extends Component {
         getData().then(data => {
             this.setState({ data : data})
         })
-        
+        getInfoPokeApi().then(res => {
+            console.log(res.data)
+        })
     }
 
 
