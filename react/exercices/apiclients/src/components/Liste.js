@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { getInfosClientsFromApi } from "../services/data.service";
 import { Client } from "./Client";
+import { Formulaire } from "./Formulaire";
 
 export class Liste extends Component {
     constructor(props){
@@ -18,6 +19,14 @@ export class Liste extends Component {
     }
 
 
+    addClient = (client) => {
+        const tmpClients = [...this.state.clients]
+        const lastid = tmpClients.length+1
+        const newClient = { id : lastid, ...client}
+        tmpClients.push(newClient);
+        this.setState({ clients : [...tmpClients]})
+    }
+
 
     render(){
 
@@ -30,10 +39,12 @@ export class Liste extends Component {
                     :
                     (
                         <>
-                        {this.state.clients.map((e,i) => <Client key={e.id} client={e} ></Client>) }
+                        {this.state.clients.map((e,i) => <Client key={e.id} client={e}  ></Client>) }
                         </>
                     )
                 }
+
+                <Formulaire addClient={this.addClient}></Formulaire>
 
             </>
         )
