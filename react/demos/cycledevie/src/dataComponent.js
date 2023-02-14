@@ -10,9 +10,9 @@ export class DataComponent extends Component {
     }
 
     componentDidMount(){
-        getData().then(data => {
-            this.setState({ data : data})
-        })
+        // getData().then(data => {
+        //     this.setState({ data : data})
+        // })
         getInfoPokeApi().then(res => {
             console.log(res.data)
         })
