@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import heartSVG from '../assets/heart-icon.svg'
 
 const ComponentA = () => {
   /*
@@ -34,6 +35,7 @@ const ComponentA = () => {
     <h1>ComponentA</h1>
     <hr />
     <div>
+      <img src={heartSVG} alt="Heart" height={100} width={100} />
       <input type="text" value={monTexte} onInput={(e) => setMonTexte(e.target.value)} />
       <span>Mon texte vaut : <b>{monTexte}</b></span>
     </div>

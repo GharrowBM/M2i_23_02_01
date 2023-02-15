@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ComponentA from "./ComponentA";
+import FormComponent from "./FormComponent";
 
 const MainComponent = (props) => {
   
@@ -49,6 +50,8 @@ const MainComponent = (props) => {
       <button onClick={() => setCompAVisible(!compAVisible)} >Toggle ComponentA</button>
       <hr />
       {compAVisible && <ComponentA />}
+      <hr />
+      <FormComponent onAddUser={(user) => console.log(user)}/>
     </div>
     </>
   )
