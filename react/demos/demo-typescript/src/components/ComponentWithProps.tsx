@@ -9,7 +9,7 @@ interface Props {
   leNombre?: number;
   lesNoms?: string[];
   onButtonClick?: () => void
-  onSayHi: (nom: string) => void
+  onSayHi?: (nom: string) => void
 }
 
 const ComponentWithProps = (props: Props) => {
@@ -25,7 +25,7 @@ const ComponentWithProps = (props: Props) => {
       </ul>
         )}
       {props.onButtonClick && <button onClick={props.onButtonClick}>Click me!</button>}
-      <button onClick={() => props.onSayHi("Bernard")}>Say hi!</button>
+      <button onClick={() => props.onSayHi && props.onSayHi("Bernard")}>Say hi!</button>
     </>
   )
 }

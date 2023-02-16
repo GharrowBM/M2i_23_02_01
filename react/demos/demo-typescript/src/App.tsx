@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <FirstComponent />
       <ComponentWithProps leTexte="Du texte" lesNoms={["Albert", "Martha", "Sophie", "Ali"]} onSayHi={sayHi}/>
-      <ComponentWithProps leTexte="Du texte" leNombre={14} onButtonClick={fonctionDeLog} onSayHi={sayHi}/>
+      <ComponentWithProps leTexte="Du texte" leNombre={14} onButtonClick={fonctionDeLog}/>
       <ClassComponent />
       <ComponentWithHooks />
     </div>
