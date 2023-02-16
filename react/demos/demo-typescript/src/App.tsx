@@ -1,15 +1,24 @@
-import MainComponent from './components/MainComponent';
-import OldFormComponent from './components/OldFormComponent';
+import ClassComponent from "./components/ClassComponent";
+import ComponentWithHooks from "./components/ComponentWithHooks";
+import ComponentWithProps from "./components/ComponentWithProps";
+import FirstComponent from "./components/FirstComponent";
 
 function App() {
-  const clickHandler = (something: string) => {
-    console.log("Clicked! " + something)
+  const fonctionDeLog = () => {
+    console.log("Je logue !")
+  }
+
+  const sayHi = (nom: string) => {
+    console.log(`Bonjour ${nom}!`)
   }
 
   return (
     <div className="App">
-      <MainComponent proName="blabla" blabla={clickHandler} />
-      <OldFormComponent />
+      <FirstComponent />
+      <ComponentWithProps leTexte="Du texte" lesNoms={["Albert", "Martha", "Sophie", "Ali"]} onSayHi={sayHi}/>
+      <ComponentWithProps leTexte="Du texte" leNombre={14} onButtonClick={fonctionDeLog} onSayHi={sayHi}/>
+      <ClassComponent />
+      <ComponentWithHooks />
     </div>
   );
 }
