@@ -25,7 +25,7 @@ const ComponentWithProps = (props: Props) => {
       </ul>
         )}
       {props.onButtonClick && <button onClick={props.onButtonClick}>Click me!</button>}
-      <button onClick={() => props.onSayHi && props.onSayHi("Bernard")}>Say hi!</button>
+      {props.onSayHi && <button onClick={() => props.onSayHi && props.onSayHi("Bernard")}>Say hi!</button>}
     </>
   )
 }
