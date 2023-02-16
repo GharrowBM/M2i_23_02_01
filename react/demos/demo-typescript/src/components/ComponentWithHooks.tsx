@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Customer from "../interfaces/Customer"
 
 interface Props {
@@ -17,8 +17,7 @@ const ComponentWithHooks = (props: Props) => {
   const [monTableau, setMonTableau] = useState<number[]>([])
   const [monObjet, setMonObjet] = useState<Customer>({firstname: "", lastname: "", age: 25})
 
-  console.log(monObjet.firstname)
-
+  
   const changeMyValues = () => {
     setMonTexte("Blabla")
     setMonTableau([2, 4, 6])
@@ -27,12 +26,32 @@ const ComponentWithHooks = (props: Props) => {
       lastname: "DUPONT"
     })
   }
+  
+  useEffect(() => {
+    /*
+      Dans le useEffect, on a deux parties principales: 
 
+      - Une section de code qui va concerner tout ce qui sera exécuté lorsque le composant est rendu par React (après sa création et l'affichage en gros)
+    */
 
+    console.log("useEffect:", monTexte)
+    
+    return () => {
+      /*
+        - Une section de code qui va concerner tout ce qui sera exécuté lorsque le composant va être modifié, donc avant que l'affichage n'ait changé. Par exemple, à la modification du state, le composant est amené à changer, cette section de code aura donc lieu. 
+      */
+      console.log("return de useEffect:", monTexte)
+    }
+  }, [monTexte])
 
   return (
     <>
+    <h1>ComponentWithHooks</h1>
+    <hr />
       <div>
+        <div>
+          <input type="text" value={monTexte} onInput={(e) => setMonTexte((e.target as HTMLInputElement).value)} />
+        </div>
         <p>La valeur de monTexte est : <b>{monTexte}</b></p>
         <p>La valeur de monTableau est : <b>[{monTableau.join(", ")}]</b></p>
         <p>La valeur de monObjet est : <b>{JSON.stringify(monObjet)}</b></p>
