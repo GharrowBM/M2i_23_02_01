@@ -5,7 +5,7 @@ const todoItemsSlice = createSlice({
   initialState: {
     todos: [],
     isLoading: false,
-    error: null
+    error: null,
   },
   reducers: {
     // dispatch(addTodoAction(<Ma todo>))

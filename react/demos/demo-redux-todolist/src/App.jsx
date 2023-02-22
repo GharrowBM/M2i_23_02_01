@@ -7,7 +7,6 @@ function App() {
   const todos = useSelector(state => state.todoItems.todos)
   const dispatch = useDispatch()
 
-
   const addTodoHandler = async () => {
     try {
       const newTodo = {
