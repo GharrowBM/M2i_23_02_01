@@ -18,6 +18,8 @@ const AlbumDisplay = (props) => {
         <ul className="list-group list-group-flush">
           <li className="d-flex list-group-item bg-dark text-light"><b className="me-auto">Artiste: </b>{album.artist}</li>
           <li className="d-flex list-group-item bg-dark text-light"><b className="me-auto">Date de sortie: </b>{new Date(album.releaseDate).toLocaleDateString()}</li>
+          {/* Pour pouvoir avoir un système d'étoiles basées sur le score, on va créer des tableaux de longueur basée sur le score et via ces tableaux ainsi que la méthode .map() on va provoquer la création d'icones d'étoiles. 
+            Vu que l'on n'a pas besoin de la valeur dans le tableau, on utilise la notation '_' pour indiquer que cette valeur est passée et ne sera pas utilisée. De la sorte, on peut faire une fonction à deux paramètres et traiter uniquement le second. */}
           <li className="d-flex list-group-item bg-dark text-light"><b className="me-auto">Score: </b>{[...Array(+album.score)].map((_,i) => <i key={i} className="mx-1 bi bi-star-fill text-warning"></i>)}{[...Array(5 - +album.score)].map((_,i) => <i key={i} className="mx-1 bi bi-star text-secondary"></i>)}</li>
           <li className="d-flex list-group-item bg-dark text-light"><b className="me-auto">Prix: </b>${album.price}</li>
         </ul>

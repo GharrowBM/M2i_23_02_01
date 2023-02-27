@@ -65,6 +65,7 @@ const AlbumForm = (props) => {
         </div>
         <div className="mb-3">
           <label htmlFor="releaseDate" className="form-label">Date de sortie: </label>
+          {/* Pour pouvoir avoir comme date maximale de sortie de l'album la date du jour, il nous faut utiliser la méthode .toISOString() puis ne prendre en compte que les 10 premiers caractères de la chaine, par exemple : '2023-02-27' */}
           <input type="date" max={new Date().toISOString().substring(0, 10)} disabled={mode === 'delete'} required={mode !== 'delete'} defaultValue={album?.releaseDate} ref={releaseDateRef} className="form-control" />
         </div>
         <div className="mb-3">
