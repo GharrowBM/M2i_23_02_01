@@ -10,7 +10,7 @@ export class Ihm {
         let choix;
         do {
             console.log("1-- Ajouter une personne")
-            console.log("2-- Ajouter une personne")
+            console.log("2-- Afficher les personne")
             console.log("0-- Quitter")
             choix = await poserUneQuestion("Merci de faire un choix : ")
             switch(choix) {
