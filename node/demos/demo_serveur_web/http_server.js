@@ -7,6 +7,7 @@ const url = require('url');
 http.createServer(function (request, response) {
     let pathname = url.parse(request.url).pathname;
     console.log('Request for ' + pathname + ' received.');
+    console.log('substr(1) ' + pathname.substr(1));
     fs.readFile(pathname.substr(1), function (err, data){
         if (err) { console.log(err.stack);
                     response.writeHead(404, {'Content-Type' : 'text/html'});

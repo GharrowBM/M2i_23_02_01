@@ -4,7 +4,7 @@ const http = require('http');
 const options = {
     host: 'localhost',
     port: '8081',
-    path: '/test.html'
+    path: '/toto.html'
 }
 
 const callback = function (response) {
