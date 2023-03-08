@@ -38,18 +38,36 @@ export class Jeu {
     }
 
     testwin(joueur){
+        // renvoie un bool pour teste possible victoire d'un joueur
         return (this.testHor(joueur) || this.testVertical(joueur)) || this.testDiagonale(joueur)
+      // return true
     }
 
     testHor(joueur){
-        return false
+        // renvoie true si meme valeur sur une ligne
+        let test
+        for(let i = 0; i < this.board.length; i++){
+            test = true
+            for(let j=0; j < this.board.length; j++){
+                if(this.board[i][j] != joueur){
+                  test = false
+                  break
+                }
+            }
+            if(test){
+                break
+            }
+        }  
+        return test
     }
 
     testVertical(joueur){
+        // renvoie true si meme valeur sur une colonne
         return false
     }
 
     testDiagonale(joueur){
+        // renvoie true si meme valeur sur une diagonale
         return false
     }
 }
