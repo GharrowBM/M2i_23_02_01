@@ -19,15 +19,21 @@ app.get('/',function(req,res){
   // res.json(req.headers)
 });
 
+// Endpoint pour recup un seul element de mon tableau
+app.get('/data/:id',function(req,res){
+    res.send(data[req.params.id])
+})
+
+
 // app.get('/',function(req,res){
 //     res.send('Hello World 2');
 //   // res.json(req.headers)
 // });
 
 // création d'un EndPoint sur le verbe get à l'adresse /data qui recupere et renvoie le parametre nomparams
-app.get('/data/:nomparams',function(req,res){
-  res.end(req.params.nomparams)
-});
+// app.get('/data/:nomparams',function(req,res){
+//   res.end(req.params.nomparams)
+// });
 
 app.get('/data', (req,res) => {
     res.json(data)
