@@ -36,4 +36,20 @@ export class Jeu {
         }
         return test
     }
+
+    testwin(joueur){
+        return (this.testHor(joueur) || this.testVertical(joueur)) || this.testDiagonale(joueur)
+    }
+
+    testHor(joueur){
+        return false
+    }
+
+    testVertical(joueur){
+        return false
+    }
+
+    testDiagonale(joueur){
+        return false
+    }
 }
