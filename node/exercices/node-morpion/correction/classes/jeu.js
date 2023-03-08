@@ -63,11 +63,32 @@ export class Jeu {
 
     testVertical(joueur){
         // renvoie true si meme valeur sur une colonne
-        return false
+        let test
+        for(let i = 0; i < this.board.length; i++){
+            test = true
+            for(let j=0; j < this.board.length; j++){
+                if(this.board[j][i] != joueur){
+                  test = false
+                  break
+                }
+            }
+            if(test){
+                break
+            }
+        }  
+        return test
     }
 
     testDiagonale(joueur){
         // renvoie true si meme valeur sur une diagonale
-        return false
+        let test = false
+        if(this.board[1][1] == joueur){
+            if((this.board[0][0] == joueur) && (this.board[2][2] == joueur)){
+                test = true
+            }else if((this.board[0][2] == joueur) && (this.board[2][0] == joueur)){
+                test = true
+            }
+        }
+        return test
     }
 }
