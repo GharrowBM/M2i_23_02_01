@@ -11,7 +11,7 @@ const api = express()
 api.use(express.json())
 
 // Endpoint cree une todo
-api.post('todos', (req,res) => {
+api.post('/todos', (req,res) => {
     const {title, content} = req.body
     if( title != undefined && content != undefined){
         dataservice.createTodo(title,content)
@@ -22,12 +22,12 @@ api.post('todos', (req,res) => {
 })
 
 // Endpoint pour récuperer toutes les todos
-api.get('todos', (req,res) => {
+api.get('/todos', (req,res) => {
     res.json(dataservice.todos)
 })
 
 // Endpoint pour recuperer une seul todo
-api.get('todos/:id', (req,res) => {
+api.get('/todos/:id', (req,res) => {
     const todo = dataservice.findTodoById(req.params.id)
     if( todo != undefined){
         res.json(todo)
@@ -36,11 +36,11 @@ api.get('todos/:id', (req,res) => {
     }
 })
 // Endpoint pour la recherche d'un todo par titre
-api.get('todos/search/:search', (req,res) => {
+api.get('/todos/search/:search', (req,res) => {
     res.json(dataservice.searchTodoByTitle(req.params.search))
 })
 //Endpoint pour changement status
-api.patch('todos/:id', (req,res) => {
+api.patch('/todos/:id', (req,res) => {
     if(dataservice.updateTodoStatus(req.params.id)){
         res.json({message : "statut modifié"})
     }else {
@@ -48,7 +48,7 @@ api.patch('todos/:id', (req,res) => {
     }
 })
 // Endpoint pour modif d'une todo
-api.put('todos/:id', (req,res) => {
+api.put('/todos/:id', (req,res) => {
     const {title, content} = req.body
     if(dataservice.updateTodo(req.params.id,title,content)){
         res.json({message : "todo update"})
@@ -58,7 +58,7 @@ api.put('todos/:id', (req,res) => {
     
 })
 // Endpoint pour suppression d'une todo
-api.delete('todos/:id', (req,res) => {
+api.delete('/todos/:id', (req,res) => {
     if(dataservice.deleteTodo(req.params.id)){
         res.json({message : "todo suppr"})
     }else {
