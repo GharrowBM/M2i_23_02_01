@@ -47,5 +47,6 @@ app.delete('/contacts/:id',(req,res) => {
 })
 
 app.listen(5000, () => {
+    data.lire()
     console.log("go")
 })
