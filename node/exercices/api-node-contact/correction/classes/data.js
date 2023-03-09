@@ -24,7 +24,10 @@ export class Data {
             const contact = new Contact(donnees[0],donnees[1],donnees[2],donnees[3],donnees[4])
             this.contacts.push(contact)
         }
-        this.compteur = this.contacts[this.contacts.length-1].id
+        if(this.contacts.length != 0){
+            this.compteur = this.contacts[this.contacts.length-1].id
+        }
+   
         
     }
 
