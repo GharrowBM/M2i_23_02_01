@@ -67,5 +67,6 @@ api.delete('/todos/:id', (req,res) => {
 })
 
 api.listen(3000, () => {
+    dataservice.read()
     console.log("api todo")
 })
