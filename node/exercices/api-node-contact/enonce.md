@@ -6,3 +6,5 @@ Créer une application express qui permet :
     -de modifier un contact avec son id
     -de supprimer un contact 
 Chaque Contact est caractérisé par (id, nom,prénom,téléphone,email)
+
+-On souhaite modifier notre api contact pour stocker les données dans un fichier csv.
