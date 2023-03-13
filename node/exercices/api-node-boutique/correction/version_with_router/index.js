@@ -5,11 +5,17 @@ import { OrderService } from "./services/orderService.js"
 import productRouter from "./router/productRouter.js"
 import customerRouter from "./router/customerRouter.js"
 import orderRouter from "./router/orderRouter.js"
+//npm i cors
+import cors from "cors"
+
+
 
 
 const app = express()
 
 app.use(express.json())
+
+app.use(cors({origin:"*"}))
 
 //Création de services
 export const customerService = new CustomerService()
