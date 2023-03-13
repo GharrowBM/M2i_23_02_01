@@ -1,1 +1,1 @@
-[]
+[{"id":1,"customer":{"id":1,"firstName":"Karim","lastName":"toto","phone":"0123456789"},"products":[{"product":{"id":1,"title":"carambar","price":45,"stock":16},"qty":20},{"product":{"id":2,"title":"speculos","price":5,"stock":0},"qty":5}]},{"id":2,"customer":{"id":2,"firstName":"Christophe","lastName":"toto","phone":"9123456789"},"products":[{"product":{"id":1,"title":"carambar","price":45,"stock":16},"qty":20}]}]
