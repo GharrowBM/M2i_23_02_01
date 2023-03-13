@@ -4,7 +4,6 @@ import { customerService } from "../index.js"
 
 const customerRouter = express.Router()
 
-customerService
 
 // creation client
 customerRouter.post('/', (req, res) => {

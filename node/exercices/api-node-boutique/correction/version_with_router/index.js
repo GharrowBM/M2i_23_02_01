@@ -20,10 +20,7 @@ export const orderService = new OrderService(customerService, productService)
 // Endpoints
 
 app.use('/produits',productRouter)
-
 app.use('/clients',customerRouter)
-
-
 app.use('/commandes',orderRouter)
 
 
