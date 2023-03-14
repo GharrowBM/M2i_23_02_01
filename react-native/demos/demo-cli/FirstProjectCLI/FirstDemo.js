@@ -4,9 +4,30 @@ import React from 'react'
 export default function FirstDemo() {
 
     const tab = [
-        { text : "toto" , id : 1},
-        { text : "tata" , id : 2},
-        { text : "tutu" , id : 3}
+        { text: "toto", id: 1 },
+        { text: "tata", id: 2 },
+        { text: "tutu", id: 3 },
+        { text: "toto", id: 1 },
+        { text: "tata", id: 2 },
+        { text: "tutu", id: 3 },
+        { text: "toto", id: 1 },
+        { text: "tata", id: 2 },
+        { text: "tutu", id: 3 },
+        { text: "toto", id: 1 },
+        { text: "tata", id: 2 },
+        { text: "tutu", id: 3 },
+        { text: "toto", id: 1 },
+        { text: "tata", id: 2 },
+        { text: "tutu", id: 3 },
+        { text: "toto", id: 1 },
+        { text: "tata", id: 2 },
+        { text: "tutu", id: 3 },
+        { text: "toto", id: 1 },
+        { text: "tata", id: 2 },
+        { text: "tutu", id: 3 },
+        { text: "toto", id: 1 },
+        { text: "tata", id: 2 },
+        { text: "tutu", id: 3 },
     ]
 
     function MessageConsole() {
@@ -15,19 +36,21 @@ export default function FirstDemo() {
 
     return (
         <View style={styles.container}>
-            <Text style={[styles.tailleTexte,styles.monTexte]}>Mon premier composant React Native</Text>
+            <Text style={[styles.tailleTexte, styles.monTexte]}>Mon premier composant React Native</Text>
             <TextInput />
             <Button title="Mon Bouton" onPress={MessageConsole} />
-            {tab.map((nom,i) => <Text key={i} style={styles.monTexte}>{nom}</Text>)}
+            {/* {tab.map((nom,i) => <Text key={i} style={styles.monTexte}>{nom}</Text>)} */}
             <FlatList data={tab} renderItem={(itemData) => {
                 return (
                     <View>
-                        <Text>{itemData.item.text}</Text>
+                        <Text style={styles.monTexte}>{itemData.item.text} {itemData.item.id}</Text>
                     </View>
                 )
-            }} keyExtractor={(item,index) => {
-                return item.id;
-            }}/>
+            }}
+                keyExtractor={(item, index) => {
+                    return index;
+                }}
+            />
         </View>
     )
 }
@@ -44,13 +67,13 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: "blue",
         flex: 1,
-        padding : 20,
+        padding: 20,
     },
-    monTexte : {
-        margin : 8,
-        color : "white"
+    monTexte: {
+        margin: 8,
+        color: "white"
     },
-    tailleTexte : {
-        fontSize : 32
+    tailleTexte: {
+        fontSize: 32
     }
 })
