@@ -1,7 +1,12 @@
 import { Button, FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
+import TestModal from './component/TestModal';
 
 export default function FirstDemo() {
+
+    const [modalVisible,setModalVisible] = useState(false);
+
+
 
     const tab = [
         { text: "toto", id: 1 },
@@ -31,14 +36,21 @@ export default function FirstDemo() {
     ]
 
     function MessageConsole() {
-        console.log("Clique sur le bouton")
+        console.log("Clique sur le bouton");
+        setModalVisible(true)
+    }
+
+    function closeModal(){
+        console.log("close modal")
+        setModalVisible(false)
     }
 
     return (
         <View style={styles.container}>
             <Text style={[styles.tailleTexte, styles.monTexte]}>Mon premier composant React Native</Text>
             <TextInput />
-            <Button title="Mon Bouton" onPress={MessageConsole} />
+            <Button title="Mon Bouton" onPress={MessageConsole} closeModal={closeModal}/>
+            <TestModal visible={modalVisible} />
             {/* {tab.map((nom,i) => <Text key={i} style={styles.monTexte}>{nom}</Text>)} */}
             <FlatList data={tab} renderItem={(itemData) => {
                 return (
