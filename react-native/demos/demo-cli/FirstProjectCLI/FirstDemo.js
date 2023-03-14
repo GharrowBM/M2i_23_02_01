@@ -49,8 +49,8 @@ export default function FirstDemo() {
         <View style={styles.container}>
             <Text style={[styles.tailleTexte, styles.monTexte]}>Mon premier composant React Native</Text>
             <TextInput />
-            <Button title="Mon Bouton" onPress={MessageConsole} closeModal={closeModal}/>
-            <TestModal visible={modalVisible} />
+            <Button title="Mon Bouton" onPress={MessageConsole} />
+            <TestModal visible={modalVisible} closeModal={closeModal}/>
             {/* {tab.map((nom,i) => <Text key={i} style={styles.monTexte}>{nom}</Text>)} */}
             <FlatList data={tab} renderItem={(itemData) => {
                 return (
