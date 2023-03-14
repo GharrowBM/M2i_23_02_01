@@ -6,6 +6,11 @@ export default function FirstDemo() {
 
     const [modalVisible,setModalVisible] = useState(false);
 
+    const [textInput,setTextInput] = useState('')
+
+    function RecupInput(enteredText) {
+        console.log(enteredText)
+    }
 
 
     const tab = [
@@ -48,7 +53,7 @@ export default function FirstDemo() {
     return (
         <View style={styles.container}>
             <Text style={[styles.tailleTexte, styles.monTexte]}>Mon premier composant React Native</Text>
-            <TextInput />
+            <TextInput onChangeText={RecupInput} value={textInput}/>
             <Button title="Mon Bouton" onPress={MessageConsole} />
             <TestModal visible={modalVisible} closeModal={closeModal}/>
             {/* {tab.map((nom,i) => <Text key={i} style={styles.monTexte}>{nom}</Text>)} */}
