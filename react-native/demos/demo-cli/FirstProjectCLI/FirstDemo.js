@@ -10,8 +10,14 @@ export default function FirstDemo() {
     )
 }
 
+//Mauvais pratique
+const container = {
+    backgroundColor: "red",
+    flex: 1,
+}
 
 
+//Bonne pratique
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "red",
