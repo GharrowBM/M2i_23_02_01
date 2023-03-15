@@ -1,12 +1,24 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export default function Article() {
+export default function Article(props) {
   return (
-    <View>
-      <Text>Article</Text>
+    <View style={styles.articleItem}>
+      <Text style={styles.articleText}>
+        {props.text}
+      </Text>
     </View>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  articleItem :{
+      margin : 8,
+      padding : 8,
+      borderRadius : 6,
+      backgroundColor : '#5e0acc',
+  },
+  articleText : {
+    color : "white",
+  }
+})

@@ -11,7 +11,7 @@ export default function ModalInput(props) {
     }
 
     function textArticle(enteredText) {
-        console.log(enteredText)
+       // console.log(enteredText)
         setTexteArticle(enteredText)
     }
 

@@ -1,6 +1,7 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Button, FlatList, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import ModalInput from './ModalInput'
+import Article from './Article'
 
 export default function Liste() {
 
@@ -18,14 +19,25 @@ export default function Liste() {
     }
 
     function addArticle(article){
-      console.log("Ajout d'un articles à ma liste : "+article)
+     // console.log("Ajout d'un articles à ma liste : "+article)
+     setArticles(articlesCurrent => [
+        ...articlesCurrent,
+        { text : article , id : Math.random().toString()}
+     ])
+     setModalIsVisible(false) // closeModale()
     }
 
   return (
     <View style={styles.container}>
         <Button title='Ajouter Article' onPress={openModale}/>
         <ModalInput visible={modalIsVisible} closeModale={closeModale} addArticle={addArticle}/>
-      <Text>Liste</Text>
+        <FlatList data={articles} renderItem={(itemData) => {
+          return (
+            <Article text={itemData.item.text}/>
+          )
+        }} keyExtractor={(item,index) => {
+          return item.id
+        }}></FlatList>
     </View>
   )
 }
