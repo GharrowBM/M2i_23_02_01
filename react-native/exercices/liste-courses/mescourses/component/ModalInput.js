@@ -1,9 +1,9 @@
-import { Button, Modal, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Button, Image, Modal, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 
 export default function ModalInput(props) {
 
-    const [texteArticle,setTexteArticle] = useState("")
+    const [texteArticle, setTexteArticle] = useState("")
 
     function addArticle() {
         console.log("Ajout d'un article")
@@ -11,7 +11,7 @@ export default function ModalInput(props) {
     }
 
     function textArticle(enteredText) {
-       // console.log(enteredText)
+        // console.log(enteredText)
         setTexteArticle(enteredText)
     }
 
@@ -19,8 +19,8 @@ export default function ModalInput(props) {
     return (
         <Modal visible={props.visible}>
             <View style={styles.container}>
-                <Text>Ajouter un article</Text>
-                <TextInput style={styles.textInput} placeholder="Taper votre Article !!!!" onChangeText={textArticle} value={texteArticle}/>
+                <Image source={require('./assets/caddie.png')} style={styles.image}></Image>
+                <TextInput style={styles.textInput} placeholder="Taper votre Article !!!!" onChangeText={textArticle} value={texteArticle} />
                 <View style={styles.buttonContainer}>
                     <View style={styles.button}>
                         <Button title='Ajouter Article' onPress={addArticle} />
@@ -55,5 +55,8 @@ const styles = StyleSheet.create({
     button: {
         width: "40%",
         marginHorizontal: 8,
+    },
+    image: {
+        width : 100,
     }
 })
