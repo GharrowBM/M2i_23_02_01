@@ -1,4 +1,4 @@
-import { Button, Image, Modal, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Button, Image, Modal, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 
 export default function ModalInput(props) {
@@ -19,7 +19,9 @@ export default function ModalInput(props) {
     return (
         <Modal visible={props.visible}>
             <View style={styles.container}>
-                <Image source={require('./assets/caddie.png')} style={styles.image}></Image>
+                <Pressable onPress={props.closeModale} style={({pressed}) => pressed && styles.pressedItem}>
+                    <Image source={require('./assets/caddie.png')} style={styles.image} resizeMode='contain' />
+                </Pressable>
                 <TextInput style={styles.textInput} placeholder="Taper votre Article !!!!" onChangeText={textArticle} value={texteArticle} />
                 <View style={styles.buttonContainer}>
                     <View style={styles.button}>
@@ -57,6 +59,10 @@ const styles = StyleSheet.create({
         marginHorizontal: 8,
     },
     image: {
-        width : 100,
+        width: 100,
+        height: 150,
+    },
+    pressedItem : {
+        backgroundColor : "yellow",
     }
 })
