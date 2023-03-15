@@ -17,7 +17,7 @@ export default function ModalInput(props) {
 
 
     return (
-        <Modal visible={props.visible}>
+        <Modal visible={props.visible} animationType="slide">
             <View style={styles.container}>
                 <Pressable onPress={props.closeModale} style={({pressed}) => pressed && styles.pressedItem}>
                     <Image source={require('./assets/caddie.png')} style={styles.image} resizeMode='contain' />
