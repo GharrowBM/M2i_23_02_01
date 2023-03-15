@@ -17,10 +17,14 @@ export default function Liste() {
         setModalIsVisible(false)
     }
 
+    function addArticle(article){
+      console.log("Ajout d'un articles à ma liste : "+article)
+    }
+
   return (
     <View style={styles.container}>
         <Button title='Ajouter Article' onPress={openModale}/>
-        <ModalInput visible={modalIsVisible} closeModale={closeModale}/>
+        <ModalInput visible={modalIsVisible} closeModale={closeModale} addArticle={addArticle}/>
       <Text>Liste</Text>
     </View>
   )

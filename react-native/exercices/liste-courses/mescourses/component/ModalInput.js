@@ -1,11 +1,18 @@
 import { Button, Modal, StyleSheet, Text, TextInput, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function ModalInput(props) {
 
+    const [texteArticle,setTexteArticle] = useState("")
 
     function addArticle() {
         console.log("Ajout d'un article")
+        props.addArticle(texteArticle);
+    }
+
+    function textArticle(enteredText) {
+        console.log(enteredText)
+        setTexteArticle(enteredText)
     }
 
 
@@ -13,7 +20,7 @@ export default function ModalInput(props) {
         <Modal visible={props.visible}>
             <View style={styles.container}>
                 <Text>Ajouter un article</Text>
-                <TextInput style={styles.textInput} />
+                <TextInput style={styles.textInput} placeholder="Taper votre Article !!!!" onChangeText={textArticle} value={texteArticle}/>
                 <View style={styles.buttonContainer}>
                     <View style={styles.button}>
                         <Button title='Ajouter Article' onPress={addArticle} />
