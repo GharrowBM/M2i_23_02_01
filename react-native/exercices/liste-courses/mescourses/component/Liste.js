@@ -27,13 +27,20 @@ export default function Liste() {
      setModalIsVisible(false) // closeModale()
     }
 
+    function deleteArticle(id) {
+        console.log("il faut delete l'article avec l'id : "+id)
+        setArticles((articlesCurrent) => {
+          return articlesCurrent.filter((item) => item.id != id)
+        })
+    }
+
   return (
     <View style={styles.container}>
         <Button title='Ajouter Article' onPress={openModale}/>
         <ModalInput visible={modalIsVisible} closeModale={closeModale} addArticle={addArticle}/>
         <FlatList data={articles} renderItem={(itemData) => {
           return (
-            <Article text={itemData.item.text}/>
+            <Article text={itemData.item.text} id={itemData.item.id} item={itemData.item} deleteArticle={deleteArticle}/>
           )
         }} keyExtractor={(item,index) => {
           return item.id
