@@ -11,17 +11,17 @@ export default function Calculatrice() {
 
 
   function numberPress(number) {
-    console.log("appuie sur un nombre : " +number)
-    if(firstNumber != "0"){
-      setFirstNumber(firstNumber + number )
-    }else {
+    console.log("appuie sur un nombre : " + number)
+    if (firstNumber != "0") {
+      setFirstNumber(firstNumber + number)
+    } else {
       setFirstNumber(number)
     }
-    
+
   }
 
   function operationPress(operateur) {
-    console.log("appuie sur un operateur : "+operateur)
+    console.log("appuie sur un operateur : " + operateur)
     setOperation(operateur)
     setSecondNumber(firstNumber)
     setFirstNumber("")
@@ -29,7 +29,20 @@ export default function Calculatrice() {
 
   function resultPress() {
     console.log("appuie sur un égal")
-    console.log("faire l'opération de "+secondNumber+" "+operation+" "+firstNumber)
+    console.log("faire l'opération de " + secondNumber + " " + operation + " " + firstNumber)
+    switch (operation) {
+      case "+":
+        const resultat = parseFloat(secondNumber) + parseFloat(firstNumber)
+        setFirstNumber(resultat)
+        break;
+      case "-":
+        break;
+      case "/":
+        break;
+      case "X":
+        break;
+    }
+
   }
 
   function clear() {
@@ -56,7 +69,7 @@ export default function Calculatrice() {
       </View>
       <View style={styles.row}>
         <Button title={"4"} onPress={() => numberPress("4")} isWhite />
-        <Button title={"5"} onPress={() => numberPress("5")} isWhite /> 
+        <Button title={"5"} onPress={() => numberPress("5")} isWhite />
         <Button title={"6"} onPress={() => numberPress("6")} isWhite />
         <Button title={"-"} onPress={() => operationPress("-")}></Button>
       </View>
@@ -67,9 +80,9 @@ export default function Calculatrice() {
         <Button title={"+"} onPress={() => operationPress("+")}></Button>
       </View>
       <View style={styles.row}>
-        <Button title={"."}  isWhite />
+        <Button title={"."} isWhite />
         <Button title={"0"} onPress={() => numberPress("0")} isWhite />
-        <Button title={"Del"}  isWhite />
+        <Button title={"Del"} isWhite />
         <Button title={"="} onPress={resultPress}></Button>
       </View>
     </View>
@@ -86,12 +99,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     marginVertical: 10,
   },
-  display : {
+  display: {
 
   },
-  displayText : {
-    fontSize : 55,
-    fontWeight : "300",
-    color : "grey",
+  displayText: {
+    fontSize: 55,
+    fontWeight: "300",
+    color: "grey",
   }
 })
