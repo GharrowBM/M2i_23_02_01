@@ -4,14 +4,11 @@ import React from 'react'
 //
 export default function Button({ onPress, title, isWhite }) {
   return (
-    //  <Pressable onPress={onPress} style={({pressed}) => pressed && styles.pressedItem}>
-    //    <View style={isWhite ? styles.isWhite : styles.isGray}>
-    //      <Text style={isWhite ? styles.isWhiteText : styles.isGrayText}>{title}</Text>
-    //    </View>
-    //  </Pressable>
-    <TouchableOpacity onPress={onPress} style={({ pressed }) => pressed ? styles.pressedItem : isWhite ? styles.isWhite : styles.isGray}>
-        <Text style={isWhite ? styles.isWhiteText : styles.isGrayText}>{title}</Text>
-    </TouchableOpacity>
+      <Pressable onPress={onPress} style={({pressed}) => pressed && styles.pressedItem}>
+        <View style={isWhite ? styles.isWhite : styles.isGray}>
+          <Text style={isWhite ? styles.isWhiteText : styles.isGrayText}>{title}</Text>
+        </View>
+      </Pressable>
   )
 }
 
