@@ -1,44 +1,47 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 
 //
-export default function Button({onPress, title, isWhite}) {
+export default function Button({ onPress, title, isWhite }) {
   return (
-     <Pressable onPress={onPress} style={({pressed}) => pressed && styles.pressedItem}>
-       <View style={isWhite ? styles.isWhite : styles.isGray}>
-         <Text style={isWhite ? styles.isWhiteText : styles.isGrayText}>{title}</Text>
-       </View>
-     </Pressable>
+    //  <Pressable onPress={onPress} style={({pressed}) => pressed && styles.pressedItem}>
+    //    <View style={isWhite ? styles.isWhite : styles.isGray}>
+    //      <Text style={isWhite ? styles.isWhiteText : styles.isGrayText}>{title}</Text>
+    //    </View>
+    //  </Pressable>
+    <TouchableOpacity onPress={onPress} style={({ pressed }) => pressed ? styles.pressedItem : isWhite ? styles.isWhite : styles.isGray}>
+        <Text style={isWhite ? styles.isWhiteText : styles.isGrayText}>{title}</Text>
+    </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-  isGray : {
-    width : 72,
-    height : 72,
-    borderRadius : 16,
-    backgroundColor : "grey",
-    justifyContent : "center",
-    alignItems : "center",
+  isGray: {
+    width: 72,
+    height: 72,
+    borderRadius: 16,
+    backgroundColor: "grey",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  isGrayText : {
-    color : "white",
-    fontSize : 20,
+  isGrayText: {
+    color: "white",
+    fontSize: 20,
   },
-  isWhite : {
-    width : 72,
-    height : 72,
-    borderRadius : 50,
-    backgroundColor : "white",
-    justifyContent : "center",
-    alignItems : "center",
+  isWhite: {
+    width: 72,
+    height: 72,
+    borderRadius: 50,
+    backgroundColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  isWhiteText : {
-    color : "black",
-    fontSize : 25,
-    fontWeight : "bold"
+  isWhiteText: {
+    color: "black",
+    fontSize: 25,
+    fontWeight: "bold"
   },
-  pressedItem : {
-    backgroundColor : "pink"
+  pressedItem: {
+    backgroundColor: "pink"
   }
 })
