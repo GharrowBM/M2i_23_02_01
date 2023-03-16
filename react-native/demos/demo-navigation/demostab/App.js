@@ -17,10 +17,13 @@ const Tab = createBottomTabNavigator()
 export default function App() {
   return (
     <NavigationContainer>
-        <Tab.Navigator screenOptions={{tabBarIconStyle:{display : 'none'}}}>
-            <Tab.Screen name="Home" component={Home}/>
+        <Tab.Navigator screenOptions={{tabBarIconStyle:{display : 'none'},tabBarLabelPosition: "beside-icon"}}>
+            <Tab.Screen name="Home" component={Home} />
             <Tab.Screen name="Setting" component={Settings}/>
             <Tab.Screen name="Contact" component={Contact}/>
+            <Tab.Screen name="test" component={Home} />
+            <Tab.Screen name="test2" component={Settings}/>
+            <Tab.Screen name="test4" component={Contact}/>
         </Tab.Navigator>
     </NavigationContainer>
   )
