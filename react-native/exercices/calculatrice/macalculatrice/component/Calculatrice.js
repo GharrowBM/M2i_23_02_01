@@ -7,7 +7,7 @@ export default function Calculatrice() {
   const [firstNumber, setFirstNumber] = useState('0');
   const [secondNumber, setSecondNumber] = useState('0');
   const [operation, setOperation] = useState('0');
-  const [result, setResult] = useState('0');
+ // const [result, setResult] = useState('0');
 
 
   function numberPress(number) {
