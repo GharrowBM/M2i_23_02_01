@@ -38,27 +38,27 @@ export default function Calculatrice() {
         <Button title={"/"}></Button>
       </View>
       <View style={styles.row}>
-        <Button title={"7"} onPress={() => numberPress("7")} isWhite></Button>
-        <Button title={"8"}></Button>
-        <Button title={"9"}></Button>
+        <Button title={"7"} onPress={() => numberPress("7")} isWhite />
+        <Button title={"8"} onPress={() => numberPress("8")} isWhite />
+        <Button title={"9"} onPress={() => numberPress("9")} isWhite />
         <Button title={"X"}></Button>
       </View>
       <View style={styles.row}>
-        <Button title={"4"}></Button>
-        <Button title={"5"}> </Button>
-        <Button title={"6"}></Button>
+        <Button title={"4"} onPress={() => numberPress("4")} isWhite />
+        <Button title={"5"} onPress={() => numberPress("5")} isWhite /> 
+        <Button title={"6"} onPress={() => numberPress("6")} isWhite />
         <Button title={"-"}></Button>
       </View>
       <View style={styles.row}>
-        <Button title={"1"}></Button>
-        <Button title={"2"}></Button>
-        <Button title={"3"}></Button>
+        <Button title={"1"} onPress={() => numberPress("1")} isWhite />
+        <Button title={"2"} onPress={() => numberPress("2")} isWhite />
+        <Button title={"3"} onPress={() => numberPress("3")} isWhite />
         <Button title={"+"}></Button>
       </View>
       <View style={styles.row}>
-        <Button title={"."}></Button>
-        <Button title={"0"}></Button>
-        <Button title={"Del"}></Button>
+        <Button title={"."}  isWhite />
+        <Button title={"0"} onPress={() => numberPress("0")} isWhite />
+        <Button title={"Del"}  isWhite />
         <Button title={"="}></Button>
       </View>
     </View>
