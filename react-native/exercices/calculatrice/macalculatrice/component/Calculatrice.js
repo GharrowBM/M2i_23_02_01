@@ -7,7 +7,7 @@ export default function Calculatrice() {
   const [firstNumber, setFirstNumber] = useState('0');
   const [secondNumber, setSecondNumber] = useState('0');
   const [operation, setOperation] = useState('0');
- // const [result, setResult] = useState('0');
+  const [result, setResult] = useState('');
 
 
   function numberPress(number) {
@@ -60,6 +60,9 @@ export default function Calculatrice() {
   return (
     <View style={styles.calculatrice}>
       <View style={styles.display}>
+        <Text style={styles.displayText}>{result}</Text>
+      </View>
+      <View style={styles.display}>
         <Text style={styles.displayText}>{firstNumber}</Text>
       </View>
       <View style={styles.row}>
@@ -99,6 +102,8 @@ export default function Calculatrice() {
 const styles = StyleSheet.create({
   calculatrice: {
     width: "100%",
+    position :'absolute',
+    bottom : 50,
   },
   row: {
     Width: "100%",
@@ -110,8 +115,10 @@ const styles = StyleSheet.create({
 
   },
   displayText: {
-    fontSize: 55,
+    fontSize: 90,
     fontWeight: "300",
     color: "grey",
+    alignSelf : "flex-end",
+    marginRight : 20,
   }
 })
