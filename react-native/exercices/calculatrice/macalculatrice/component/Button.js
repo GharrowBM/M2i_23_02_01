@@ -4,7 +4,7 @@ import React from 'react'
 //
 export default function Button({onPress, title, isWhite}) {
   return (
-     <Pressable onPress={onPress} >
+     <Pressable onPress={onPress} style={({pressed}) => pressed && styles.pressedItem}>
        <View style={isWhite ? styles.isWhite : styles.isGray}>
          <Text style={isWhite ? styles.isWhiteText : styles.isGrayText}>{title}</Text>
        </View>
@@ -37,5 +37,8 @@ const styles = StyleSheet.create({
     color : "black",
     fontSize : 25,
     fontWeight : "bold"
+  },
+  pressedItem : {
+    backgroundColor : "pink"
   }
 })
