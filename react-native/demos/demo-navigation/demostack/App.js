@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import PageA from './component/PageA'
 import PageB from './component/PageB'
+import PageC from './component/PageC'
 
 
 // package necessaire navigation :
@@ -19,6 +20,7 @@ export default function App() {
             <Stack.Navigator initialRouteName='PageA'>
                 <Stack.Screen name="PageA" component={PageA} options={{headerShown : false}}/>
                 <Stack.Screen name="PageB" component={PageB} options={{title : "Ma page B"}}/>
+                <Stack.Screen name="PageC" component={PageC} options={{title : "Toto's Page"}} />
             </Stack.Navigator>
     </NavigationContainer>
   )
