@@ -10,8 +10,8 @@ export default function Calculatrice() {
   const [result, setResult] = useState('0');
 
 
-  function numberPress() {
-    console.log("appuie sur un nombre")
+  function numberPress(number) {
+    console.log("appuie sur un nombre :" +number)
   }
 
   function operationPress() {
@@ -33,12 +33,12 @@ export default function Calculatrice() {
       </View>
       <View style={styles.row}>
         <Button onPress={clear} title={"AC"} />
-        <Button title={"^"}></Button>
+        <Button title={"^"} ></Button>
         <Button title={"%"}></Button>
         <Button title={"/"}></Button>
       </View>
       <View style={styles.row}>
-        <Button title={"7"}></Button>
+        <Button title={"7"} onPress={() => numberPress("7")}></Button>
         <Button title={"8"}></Button>
         <Button title={"9"}></Button>
         <Button title={"X"}></Button>
