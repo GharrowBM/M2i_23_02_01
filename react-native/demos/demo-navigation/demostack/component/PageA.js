@@ -5,7 +5,8 @@ export default function PageA({ navigation }) {
   return (
     <View>
       <Text>On va mettre un lien vers la page B !!!</Text>
-      <Button title='Go to PageB' onPress={() => navigation.navigate("PageB")} />
+      {/* <Button title='Go to PageB' onPress={() => navigation.navigate("PageB")} /> */}
+      <Button title='Go to PageB' onPress={() => navigation.navigate("PageB", { name : "toto"})} />
     </View>
   )
 }
