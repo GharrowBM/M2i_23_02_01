@@ -30,16 +30,23 @@ export default function Calculatrice() {
   function resultPress() {
     console.log("appuie sur un égal")
     console.log("faire l'opération de " + secondNumber + " " + operation + " " + firstNumber)
+    let resultat;
     switch (operation) {
       case "+":
-        const resultat = parseFloat(secondNumber) + parseFloat(firstNumber)
+        resultat = parseFloat(secondNumber) + parseFloat(firstNumber)
         setFirstNumber(resultat)
         break;
       case "-":
+        resultat = parseFloat(secondNumber) - parseFloat(firstNumber)
+        setFirstNumber(resultat)
         break;
       case "/":
+        resultat = parseFloat(secondNumber) / parseFloat(firstNumber)
+        setFirstNumber(resultat)
         break;
       case "X":
+        resultat = parseFloat(secondNumber) * parseFloat(firstNumber)
+        setFirstNumber(resultat)
         break;
     }
 
