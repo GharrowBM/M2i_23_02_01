@@ -38,7 +38,7 @@ export default function Calculatrice() {
         <Button title={"/"}></Button>
       </View>
       <View style={styles.row}>
-        <Button title={"7"} onPress={() => numberPress("7")}></Button>
+        <Button title={"7"} onPress={() => numberPress("7")} isWhite></Button>
         <Button title={"8"}></Button>
         <Button title={"9"}></Button>
         <Button title={"X"}></Button>
