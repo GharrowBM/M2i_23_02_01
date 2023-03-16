@@ -16,9 +16,9 @@ const Stack = createNativeStackNavigator()
 export default function App() {
   return (
     <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator initialRouteName='PageA'>
                 <Stack.Screen name="PageA" component={PageA}/>
-                <Stack.Screen name="PageB" component={PageB}/>
+                <Stack.Screen name="PageB" component={PageB} options={{title : "Ma page B"}}/>
             </Stack.Navigator>
     </NavigationContainer>
   )
