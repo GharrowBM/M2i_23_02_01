@@ -1,9 +1,12 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native'
+import { FlatList, Platform, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { CATEGORIES } from '../data/data'
 import CategoryGridTitle from '../components/CategoryGridTitle'
 
 export default function CategoriesScreen({ navigation }) {
+
+
+    
   return (
     <FlatList data={CATEGORIES} 
     keyExtractor={(item) => item.id}

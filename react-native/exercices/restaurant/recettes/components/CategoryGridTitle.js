@@ -1,5 +1,6 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View, Platform } from 'react-native'
 import React from 'react'
+
 
 export default function CategoryGridTitle({ title, color, onPress }) {
     return (
@@ -40,6 +41,6 @@ const styles = StyleSheet.create({
     },
     title : {
         fontWeight : 'bold',
-        fontSize : 20,
+        fontSize : Platform.OS === 'android' ? 20 : 30,
     }
 })
