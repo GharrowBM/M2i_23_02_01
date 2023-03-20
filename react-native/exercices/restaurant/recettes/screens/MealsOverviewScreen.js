@@ -1,6 +1,6 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { MEALS } from '../data/data'
+import React, { useLayoutEffect } from 'react'
+import { CATEGORIES, MEALS } from '../data/data'
 import MealItem from '../components/MealItem'
 
 export default function MealsOverviewScreen({navigation, route}) {
@@ -10,6 +10,17 @@ export default function MealsOverviewScreen({navigation, route}) {
         return item.categoryIds.includes(categoryId)
      // autre possibilité a ajouter
     })
+
+    useLayoutEffect(() => {
+        const categoryTitle = CATEGORIES.find(
+            (category) => category.id == categoryId
+        ).title;
+
+        navigation.setOptions({
+            title : categoryTitle
+        })
+    },[categoryId, navigation])
+
   return (
     <FlatList data={meals} keyExtractor={(item) => item.id}
         renderItem={(itemData) => {
