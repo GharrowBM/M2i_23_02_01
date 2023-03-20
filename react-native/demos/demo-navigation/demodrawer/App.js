@@ -1,6 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createDrawerNavigator} from '@react-navigation/drawer'
+import { NavigationContainer } from '@react-navigation/native'
+import Home from './component/Home'
+import Settings from './component/Settings'
+import Contact from './component/Contact'
 
 // package necessaire navigation :
 // npm install @react-navigation/native
@@ -13,9 +17,13 @@ const Drawer = createDrawerNavigator()
 
 export default function App() {
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+   <NavigationContainer>
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={Home}/>
+      <Drawer.Screen name="Settings" component={Settings}/>
+      <Drawer.Screen name="Contact" component={Contact}/>
+    </Drawer.Navigator>
+   </NavigationContainer>
   )
 }
 
