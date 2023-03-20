@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "demodrawer.app"
-               BlueprintName = "demodrawer"
-               ReferencedContainer = "container:demodrawer.xcodeproj">
+               BuildableName = "fck.app"
+               BlueprintName = "fck"
+               ReferencedContainer = "container:fck.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "demodrawerTests.xctest"
-               BlueprintName = "demodrawerTests"
-               ReferencedContainer = "container:demodrawer.xcodeproj">
+               BuildableName = "fckTests.xctest"
+               BlueprintName = "fckTests"
+               ReferencedContainer = "container:fck.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "demodrawer.app"
-            BlueprintName = "demodrawer"
-            ReferencedContainer = "container:demodrawer.xcodeproj">
+            BuildableName = "fck.app"
+            BlueprintName = "fck"
+            ReferencedContainer = "container:fck.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "demodrawer.app"
-            BlueprintName = "demodrawer"
-            ReferencedContainer = "container:demodrawer.xcodeproj">
+            BuildableName = "fck.app"
+            BlueprintName = "fck"
+            ReferencedContainer = "container:fck.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

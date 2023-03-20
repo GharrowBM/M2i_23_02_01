@@ -1,4 +1,4 @@
-package com.demodrawer;
+package com.fck;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

@@ -1,29 +1,59 @@
-import { StyleSheet, Text, View } from 'react-native'
+//import 'react-native-gesture-handler';
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { createDrawerNavigator} from '@react-navigation/drawer'
 import { NavigationContainer } from '@react-navigation/native'
-import Home from './component/Home'
-import Settings from './component/Settings'
-import Contact from './component/Contact'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import PageA from './PageA'
+import PageB from './PageB'
+import { createStackNavigator } from '@react-navigation/stack'
+import PageC from './PageC'
 
-// package necessaire navigation :
-// npm install @react-navigation/native
-// npm install react-native-screens react-native-safe-area-context
 
-// npm install @react-navigation/drawer
-// npm install react-native-gesture-handler react-native-reanimated
+//npm i react-native-gesture-handler
+const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
 
-const Drawer = createDrawerNavigator()
+function MyButton(){
+  return(
+    <Pressable onPress={() => {console.log("clique header")}}>
+      <Text>Clique ICI</Text>
+    </Pressable>
+  )
+}
+
+// options={{  headerShown: false, }} // pour MyDrawer
+function MyStack() {
+  return (
+    <Stack.Navigator screenOptions={{
+      headerShown: false
+    }}>
+       <Stack.Screen name="Drawer" component={MyDrawer} />
+      {/* <Stack.Screen name="Toto" component={PageA} /> */}
+      <Stack.Screen name="PageC" component={PageC} options={{  headerShown: true, headerRight : MyButton }}/>
+    </Stack.Navigator>
+  )
+
+}
+
+function MyDrawer() {
+  return (
+    <Drawer.Navigator >
+       <Drawer.Screen name="PageA" component={PageA} options={{  headerShown: false, }}/> 
+     {/* <Drawer.Screen name="Toto" component={MyStack} />  */}
+      <Drawer.Screen name="PageB" component={PageB} />
+    </Drawer.Navigator>
+  );
+}
+
 
 export default function App() {
+
+
   return (
-   <NavigationContainer>
-    <Drawer.Navigator>
-      <Drawer.Screen name="Home" component={Home}/>
-      <Drawer.Screen name="Settings" component={Settings}/>
-      <Drawer.Screen name="Contact" component={Contact}/>
-    </Drawer.Navigator>
-   </NavigationContainer>
+    <NavigationContainer>
+      {/* <MyDrawer /> */}
+      <MyStack />
+    </NavigationContainer>
   )
 }
 
