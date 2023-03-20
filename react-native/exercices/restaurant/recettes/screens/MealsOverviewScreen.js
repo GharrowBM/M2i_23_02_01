@@ -20,10 +20,10 @@ export default function MealsOverviewScreen({navigation, route}) {
                 imageUrl : item.imageUrl,
                 affordability : item.affordability,
                 complexity : item.complexity,
-                durattion : item.duration
+                duration : item.duration
               }  
 
-            return (<MealItem {...mealProps} />)
+            return (<MealItem {...mealProps}  />)
         }}
     />
 
