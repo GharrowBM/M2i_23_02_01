@@ -4,7 +4,7 @@ import React from 'react'
 export default function CategoryGridTitle({ title, color, onPress }) {
     return (
         <View style={styles.gridItem}>
-            <Pressable onPress={onPress}>
+            <Pressable onPress={onPress} style={({pressed}) =>  [ styles.button, pressed ? styles.buttonPressed : null] }>
                 <View style={[styles.innerContainer, {backgroundColor : color}]}>
                     <Text style={styles.title}>{title}</Text>
                 </View>
@@ -21,7 +21,15 @@ const styles = StyleSheet.create({
         height : 150,
         borderRadius : 8,
         backgroundColor : "white",
+        elevation : 4,
+       // overflow : 'hidden'
 
+    },
+    button : {
+        flex : 1,
+    },
+    buttonPressed : {
+        opacity : 0.5,
     },
     innerContainer : {
         flex : 1,
