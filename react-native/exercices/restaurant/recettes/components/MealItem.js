@@ -7,7 +7,7 @@ export default function MealItem({ id, title, imageUrl, duration, complexity, af
     const navigation = useNavigation()
     return (
         <View style={styles.mealItem}>
-            <Pressable  style={({ pressed }) => (pressed ? styles.buttonPressed : null)} onPress={() => navigation.navigate("Categories")}>
+            <Pressable  style={({ pressed }) => (pressed ? styles.buttonPressed : null)} onPress={() => navigation.navigate("MealDetail", { mealId : id})}>
                 <View style={styles.innerContainer}>
                     <View>
                         <Image source={{ uri: imageUrl }} style={styles.image} />
