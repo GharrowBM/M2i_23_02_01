@@ -1,7 +1,9 @@
-import { StyleSheet, Text, View,ScrollView ,Image} from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Image } from 'react-native'
 import React from 'react'
 import { MEALS } from '../data/data';
 import MealDetails from '../components/MealDetails';
+import List from '../components/List';
+import Subtitle from '../components/Subtitle';
 
 export default function MealsDetailScreen({ navigation, route }) {
     const mealId = route.params.mealId;
@@ -17,32 +19,41 @@ export default function MealsDetailScreen({ navigation, route }) {
                 affordability={myMeal.affordability}
                 textStyle={styles.detailText}
             />
+            <View style={styles.listOuterContainer}>
+                <View style={styles.listContainer}>
+                    <Subtitle>Ingredients</Subtitle>
+                   <List data={myMeal.ingredients} /> 
+                    <Subtitle>Steps</Subtitle>
+                     <List data={myMeal.steps} /> 
+                </View>
+            </View>
         </ScrollView>
+        
     )
 }
 
 const styles = StyleSheet.create({
     rootContainer: {
         marginBottom: 32,
-      },
-      image: {
+    },
+    image: {
         width: '100%',
         height: 350,
-      },
-      title: {
+    },
+    title: {
         fontWeight: 'bold',
         fontSize: 24,
         margin: 8,
         textAlign: 'center',
         color: 'black',
-      },
-      detailText: {
+    },
+    detailText: {
         color: 'white',
-      },
-      listOuterContainer: {
+    },
+    listOuterContainer: {
         alignItems: 'center',
-      },
-      listContainer: {
+    },
+    listContainer: {
         width: '80%',
-      },
+    },
 })
