@@ -13,7 +13,7 @@ export default function CategoriesScreen({ navigation }) {
     renderItem={(itemData) => {
         return(
             // <Text>{itemData.item.title}</Text>
-            <CategoryGridTitle title={itemData.item.title} color={itemData.item.color} onPress={() => console.log(itemData.item.id)}/>
+            <CategoryGridTitle title={itemData.item.title} color={itemData.item.color} onPress={() => navigation.navigate('MealsOverview', {categoryId : itemData.item.id})}/>
         )
         
     }}
