@@ -1,12 +1,41 @@
 import { Button, FlatList, StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ModalInput from './ModalInput'
 import Article from './Article'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export default function Liste() {
 
     const [modalIsVisible,setModalIsVisible] = useState(false) // state pour ma modal
     const [articles,setArticles] = useState([])
+
+    useEffect(() => {
+      if(articles.length == 0){
+        getData()
+      }else {
+        setData()
+      }
+    
+    },[articles])
+
+    const getData = async () => {
+      try {
+          const mesArticles = await AsyncStorage.getItem('articles')
+          if (mesArticles !== null) {
+              setArticles(JSON.parse(mesArticles))
+          }
+      } catch (error) {
+          console.log(error)
+      }
+  }
+  const setData = async () => {
+    try {
+        const mesArticles = JSON.stringify(articles)
+        await AsyncStorage.setItem('articles', mesArticles)
+    } catch (error) {
+        console.log(error)
+    }
+}
 
     function openModale(){
         console.log("clique sur bouton ajouter article")
@@ -36,7 +65,7 @@ export default function Liste() {
 
   return (
     <View style={styles.container}>
-        <Button title='Ajouter Article' onPress={openModale}/>
+        <Button title='Ajouter un Article ' onPress={openModale}/>
         <ModalInput visible={modalIsVisible} closeModale={closeModale} addArticle={addArticle}/>
         <FlatList data={articles} renderItem={(itemData) => {
           return (
