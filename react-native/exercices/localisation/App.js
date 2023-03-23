@@ -1,6 +1,7 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Geolocation from '@react-native-community/geolocation'
+import axios from 'axios'
 
 
 // npm i @react-native-community/geolocation
@@ -29,8 +30,8 @@ export default function App() {
 
     function getApiWithFetch(){
         console.log("demande API avec Fetch")
-        console.log(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=APIKEY&q=${latitude}%2C${longitude}`)
-        fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=APIKEY&q=${latitude}%2C${longitude}`)
+        console.log(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${APIKEY}&q=${latitude}%2C${longitude}`)
+        fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${APIKEY}&q=${latitude}%2C${longitude}`)
         .then(response => response.json())
         .then(data => setLocalisationFetch({ ville : data.LocalizedName , pays : data.Country.LocalizedName}))
         .catch(error => console.error(error))
@@ -38,6 +39,9 @@ export default function App() {
 
     function getApiWithAxios(){
       console.log("demande API avec Axios")
+      axios.get(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${APIKEY}&q=${latitude}%2C${longitude}`)
+      .then(response => setLocalisationAxios({ ville : response.data.LocalizedName , pays : response.data.Country.LocalizedName}))
+      .catch(error => console.error(error))
     }
 
     function reload(){
