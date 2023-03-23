@@ -29,6 +29,11 @@ export default function App() {
 
     function getApiWithFetch(){
         console.log("demande API avec Fetch")
+        console.log(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=APIKEY&q=${latitude}%2C${longitude}`)
+        fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=APIKEY&q=${latitude}%2C${longitude}`)
+        .then(response => response.json())
+        .then(data => setLocalisationFetch({ ville : data.LocalizedName , pays : data.Country.LocalizedName}))
+        .catch(error => console.error(error))
     }
 
     function getApiWithAxios(){
